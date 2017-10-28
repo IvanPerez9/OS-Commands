@@ -85,12 +85,12 @@ char ** OrdenarPila (char** pilaOrd , int posicion){ // Con 2 punteros, uno adel
 	char buffer[1024];
 	int i , j;
 
-	for(i=0 ;i>posicion-1; i++){
-		for(j=0; j>posicion-i-1; j++){
-			if((strlen(pilaOrd[j])) < (strlen(pilaOrd[j+1]))){
-				strcpy(buffer,pilaOrd[j]); 			// Posicion de la cadena a buffer, intercambio posiciones.
-				strcpy(pilaOrd[j], pilaOrd[j+1]);
-				strcpy(pilaOrd[j+1],buffer);
+	for(i=0 ;i<posicion-1; i++){
+		for(j=0; j<posicion-i-1; j++){
+			if((strlen(pilaOrd[j+1])) < (strlen(pilaOrd[j]))){
+				strcpy(buffer,pilaOrd[j+1]); 			// Posicion de la cadena a buffer, intercambio posiciones.
+				strcpy(pilaOrd[j+1], pilaOrd[j]);
+				strcpy(pilaOrd[j],buffer);
 			}
 		}	
 	}
