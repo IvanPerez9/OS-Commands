@@ -30,3 +30,80 @@ int tail (int N){
 		
 
 }
+
+int longlines (int N){
+
+	char buff[1024]; // Almacen temporal
+	char ** pila ; // Pila resultante, de mayor a menor ordenada 
+	int i;
+	int pos=0;
+
+	// Reservar memoria dinámica. Usar malloc
+
+	pila = (char **) malloc (N*sizeof(char));
+	for(i=0; i<N ; i++){
+		pila[i] = (char *) malloc (1024*sizeof(char)); // Reservo N espacios con tamaño 1024 ;
+	}
+
+	// Recorrer el archivo hasta el final. Luego hacer subprograma para ordenar las N primeras de mayor a menor
+
+	while(fgets(buff , 1024 , stdin)) != NULL){     // Mientras que no sea EOF, recorro
+		strcpy(pila[pos] , buff)		// Copia String, de buff a la pos 0 de la pila.
+		pos++;
+	}
+
+	pila = OrdenarPila (pila,pos) ;			// Ordena la pila, sabiendo cual es el numero max de posicion.
+
+	printf("\n");
+	//Resultado de la cadena.
+	
+}
+
+
+
+char ** OrdenarPila (char** pilaOrd , int posision){ // Con 2 punteros, uno adelante y otro atrás. Posicion es la posicion final
+
+	char buffer[1024];
+	int i , j;
+
+	for(i=0 ;i>posicion-1; i++){
+		for(j=0; j>posicion-i-1; j++){
+			if((strlen(pilaOrd[j])) < (strlen(pilaOrd[j+1]))){
+				strcpy(buffer,pilaOrd[j]); 			// Posicion de la cadena a buffer, intercambio posiciones.
+				strcpy(pilaOrd[j], pilaOrd[j+1]);
+				strcpy(pilaOrd[j+1],buffer);
+			}
+		}	
+	}
+
+	return pilaOrd;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
