@@ -1,0 +1,39 @@
+/*	int n;
+	int entrada;
+	int lineasHead; // Vaiable para Funcion HEAD 
+
+	do
+	{
+
+		printf("1.Mostrar N primeras lineas - Funcion head(int N)\n");
+		printf("2.Mostrar N ultimas lineas - Funcion tail(int N)\n");
+		printf("3.Mostrar N lineas mas largas de mayor a menos - Funcion longlines(int N)\n");
+		printf("4.Salir\n");
+
+		do{
+			
+			printf("Introduzca una opcion entre 1-4 \n");
+			scanf("%d" , &entrada);					// Ojo poner el & para leer. Scanf como puntero.
+
+		}while(entrada<1 || entrada>4);
+		
+		
+		switch (entrada){
+
+			case 1: printf("Introduzca numero de lineas a leer 1\n");
+				scanf("%d", &lineasHead);
+				head(lineasHead);
+				break;
+
+			case 2: printf("Introduzca .... 2\n");
+				break;
+
+			case 3: printf("Introduzca .... 3\n");
+				break;
+
+		}
+
+	} while (entrada != 4);
+
+return 0;
+*/
