@@ -20,7 +20,7 @@ int main (int argc , char *argv[]){
 			//tail(n);
 			return 0;
 		} else if (strcmp(opcion, "longlines")==0){
-			//longlines(n);
+			longlines(n);
 			return 0;
 		} else {
 			fprintf(stderr, "No ha usado un nombre de un metodo\n");
