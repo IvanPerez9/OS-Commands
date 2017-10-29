@@ -4,6 +4,8 @@
 #include <string.h>
 
 char ** OrdenarPila (char** pilaOrd , int posision); // Declaracion implicita 
+void cambio(int pos, char** text,char* buf);
+
 
 int head(int N){
 
@@ -46,26 +48,43 @@ int longlines (int N){
 
 	// Reservar memoria dinámica. Usar malloc
 
-	pila = (char **) malloc (N*sizeof(char));
+	pila = (char **) malloc (N*sizeof(char*)); // El array que crea es de 10 en el peor caso, por lo que miro lineas mas grandes al mismo tiempo 
 	for(i=0; i<N ; i++){
-		pila[i] = (char *) malloc (1024*sizeof(char)); // Reservo N espacios con tamaño 1024 ;
+		pila[i] = (char *) malloc (1024*sizeof(char));  // Reservo N espacios con tamaño 1024 en cada  ;
 	}
 
-	// Recorrer el archivo hasta el final. Luego hacer subprograma para ordenar las N primeras de mayor a menor
+	// Recorrer el archivo hasta el final.
 
-	while(fgets(buff , 1024 , stdin) != NULL){     // Mientras que no sea EOF, recorro
-		strcpy(pila[pos] , buff);		// Copia String, de buff a la pos 0 de la pila.
-		pos++;
+	while(fgets(buff , 1024 , stdin) != NULL){     	     // Mientras que no sea EOF, recorro		
+		if(strlen(buff)>strlen(pila[0])){
+			while((pos<N) && (strlen(buff)>strlen(pila[pos]))){ // Emepezar en la posicion 0 
+				pos++;
+				printf("Hola 1");
+			}
+		}
+		if(pos == 0){			// posicion 0
+			strcpy(pila[0],buff);
+			printf("hola 2");
+		}else{
+			int  indice = 0;
+			//Ordena los elementos.
+			while(indice<pos-1){
+				strcpy(pila[indice],pila[indice +1]);
+				indice++;
+				printf("Hola 3");
+			}
+			//Inserta el nuevo elemento.
+			strcpy(pila[pos-1],buff);
+			printf("hola 4");
+		}
 	}
-
-	pila = OrdenarPila (pila,pos) ;			// Ordena la pila, sabiendo cual es el numero max de posicion.
 
 	printf("\n");
 
 	//Resultado de la cadena.
 	
-	for(imprimir=0; imprimir<N; imprimir++){
-		printf("%s\n" , pila[imprimir]);
+	for(imprimir=0; imprimir<pos; imprimir++){
+		printf("%s" , pila[imprimir]);
 	}
 
 	//Liberar espacio
@@ -80,24 +99,6 @@ int longlines (int N){
 
 
 
-char ** OrdenarPila (char** pilaOrd , int posicion){ // Con 2 punteros, uno adelante y otro atrás. Posicion es la posicion final
-
-	char buffer[1024];
-	int i , j;
-
-	for(i=0 ;i<posicion-1; i++){
-		for(j=0; j<posicion-i-1; j++){
-			if((strlen(pilaOrd[j+1])) < (strlen(pilaOrd[j]))){
-				strcpy(buffer,pilaOrd[j+1]); 			// Posicion de la cadena a buffer, intercambio posiciones.
-				strcpy(pilaOrd[j+1], pilaOrd[j]);
-				strcpy(pilaOrd[j],buffer);
-			}
-		}	
-	}
-
-	return pilaOrd;
-
-}
 
 
 
