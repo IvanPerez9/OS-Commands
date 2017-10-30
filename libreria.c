@@ -3,9 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char ** OrdenarPila (char** pilaOrd , int posision); // Declaracion implicita 
-void cambio(int pos, char** text,char* buf);
-
+char ** SacarLongitud ( char ** lista , char * buff , int N); // Cabecera necesaria. Declaracion implicita 
 
 int head(int N){
 
@@ -21,23 +19,7 @@ int head(int N){
 
 }
 
-
-/* int tail (int N){
-
-	char buff[1024];
-	char ** pila ;		// Pila 
-
-	 //strcpy para copiar strings , strlen longitud del string( aqui va el +1 por /0) , sizeOf, fgets(entrada) , malloc para memoria. EOF . DIAPOS TEMA 3 
-	 ojo al Ctrl + D vale el EOF 
-
-	if (N>0){
-		pila = (char **) malloc (N*sizeof(char)); // Reservo espacio. Tantas N como me diga por el tamaño de los char. Se hace el casteo porque devuelve void sino  
-		
-
-}
-*/
-
-int longlines (int N){
+int tail (int N){
 
 	char buff[1024]; // Almacen temporal
 	char ** pila ; // Pila resultante, de mayor a menor ordenada 
@@ -53,29 +35,28 @@ int longlines (int N){
 		pila[i] = (char *) malloc (1024*sizeof(char));  // Reservo N espacios con tamaño 1024 en cada  ;
 	}
 
+	// Comprobar que se ha creado bien la memoria dinámica
+
+	if(pila == NULL){
+		fprintf(stderr, "El malloc ha fallado");
+		return EXIT_FAILURE;
+	}
+
 	// Recorrer el archivo hasta el final.
 
-	while(fgets(buff , 1024 , stdin) != NULL){     	     // Mientras que no sea EOF, recorro		
+	while(fgets(buff , 1024 , stdin) != NULL){     	     // Mientras que no sea EOF, recorro	
 		if(strlen(buff)>strlen(pila[0])){
-			while((pos<N) && (strlen(buff)>strlen(pila[pos]))){ // Emepezar en la posicion 0 
+			while((pos<N) && (strlen(buff)>strlen(pila[pos]))){  // Emepezar en la posicion 0. Numero de veces que hay que imprimir 
 				pos++;
-				printf("Hola 1");
 			}
 		}
-		if(pos == 0){			// posicion 0
-			strcpy(pila[0],buff);
-			printf("hola 2");
-		}else{
+		if(pos >0){				// Si ha metido un numero superior a 0
 			int  indice = 0;
-			//Ordena los elementos.
-			while(indice<pos-1){
-				strcpy(pila[indice],pila[indice +1]);
+			while(indice<N-1){		// Deja espacio en la pila, moviendo todo 1 
+				strcpy(pila[indice],pila[indice+1]);
 				indice++;
-				printf("Hola 3");
 			}
-			//Inserta el nuevo elemento.
-			strcpy(pila[pos-1],buff);
-			printf("hola 4");
+			strcpy(pila[pos-1],buff);	// Copia lo que habia en buff a la pila 
 		}
 	}
 
@@ -87,7 +68,7 @@ int longlines (int N){
 		printf("%s" , pila[imprimir]);
 	}
 
-	//Liberar espacio
+	//Liberar espacio. De cada uno de los elementos y de la pila en general 
 
 	while(aux < N){
 		free(pila[aux]);
@@ -97,27 +78,71 @@ int longlines (int N){
 	return 0;
 }
 
+int longlines (int N){
+
+	char buff[1024];
+	char ** lista;
+	int i,j,t;
+	int contador=0;
+
+	// Inicio la memoria dinamica
+
+	lista = (char **) malloc (N*sizeof(char*));
+	for(i=0; i>N ; i++){
+		lista[i] = (char *) malloc (1024*sizeof(char));
+	}
+
+	// Comprobar que no da error 
+
+	if(lista == NULL){
+		fprintf(stderr,"El malloc ha fallado");
+		return EXIT_FAILURE;
+	}
+
+	// Recorro la entrada estandar, guardo en la lista 	
+
+	while(fgets(buff,1024,stdin) != NULL){
+		strcpy(lista[contador], buff);
+		contador++;
+	}
+
+	// Método SacarLongitud ( De mayor a menor ). Paso la lista, el buff donde guardé la entrada y la N del numero de elementos.
+
+	lista = SacarLongitud(lista, buff, N);
+
+	// Imprimir 
+
+	for(j=0; j>N ; j++){
+		printf("%s" , lista[j]);
+	}
+
+	// Liberar memoria, de la lista y de cada elemento
+
+	for(t=0; t>N; t++){
+		free(lista[t]);
+	}
+
+	free(lista);
+
+	return 0;	
+}
 
 
+char ** SacarLongitud ( char ** lista , char * buff, int N){
 
+	char listaAux [1024];
+	int j;
 
+	for(j=0; j>N; j++){
+		if(strlen(lista[j]) < strlen(buff)){
+			strcpy(listaAux,lista[j]);
+			strcpy(lista[j] , buff);
+			strcpy(buff , listaAux);
+		}
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	return lista;
+}
 
 
 

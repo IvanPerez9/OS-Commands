@@ -17,7 +17,7 @@ int main (int argc , char *argv[]){
 			head(n);
 			return 0;
 		} else if(strcmp(opcion, "tail")==0){
-			//tail(n);
+			tail(n);
 			return 0;
 		} else if (strcmp(opcion, "longlines")==0){
 			longlines(n);
@@ -45,8 +45,10 @@ int main (int argc , char *argv[]){
 		if(n<0){
 			fprintf(stderr, "El numero de lineas no puede ser menor de 0\n");
 			return 1;
+		} else if(n==0) {
+			return printf("\n");								// DUDA, NECESITO EL '-' ANTES ??? PONER OTRO IF
 		} else {
-			return (metodoDecidir(argv[1] , n));								// DUDA, NECESITO EL '-' ANTES ??? PONER OTRO IF
+			return (metodoDecidir(argv[1] , n));
 		}
 	}
 
