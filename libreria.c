@@ -10,6 +10,7 @@ int head(int N){
 	char buff[1024];
 	int contador = 0;
 
+	printf("\n");
 	while((contador<N) && (fgets(buff,1024,stdin)!= NULL)){
 		printf("%s" , buff);
 		contador++;
@@ -81,9 +82,11 @@ int tail (int N){
 int longlines (int N){
 
 	char buff[1024];
+	char listaAux[1024];
 	char ** lista;
 	int i,j,t;
 	int contador=0;
+	int aux;
 
 	// Inicio la memoria dinamica
 
@@ -102,13 +105,14 @@ int longlines (int N){
 	// Recorro la entrada estandar, guardo en la lista 	
 
 	while(fgets(buff,1024,stdin) != NULL){
-		strcpy(lista[contador], buff);
-		contador++;
+		for(aux=0; aux>N; aux++){
+			if(strlen(lista[aux]) < strlen(buff)){ // Longitud de la lista es menor que longitud en buff, entonces hago auxiliar y cambio
+				strcpy(listaAux,lista[aux]);
+				strcpy(lista[aux] , buff);
+				strcpy(buff , listaAux);
+			}
+		}
 	}
-
-	// Método SacarLongitud ( De mayor a menor ). Paso la lista, el buff donde guardé la entrada y la N del numero de elementos.
-
-	lista = SacarLongitud(lista, buff, N);
 
 	// Imprimir 
 
@@ -128,7 +132,7 @@ int longlines (int N){
 }
 
 
-char ** SacarLongitud ( char ** lista , char * buff, int N){
+/*char ** SacarLongitud ( char ** lista , char * buff, int N){
 
 	char listaAux [1024];
 	int j;
@@ -143,6 +147,7 @@ char ** SacarLongitud ( char ** lista , char * buff, int N){
 
 	return lista;
 }
+*/
 
 
 
