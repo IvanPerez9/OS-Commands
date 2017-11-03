@@ -84,15 +84,13 @@ int longlines (int N){
 	char buff[1024];
 	char listaAux[1024];
 	char ** lista;
-	int i,j,t;
-	int contador=0;
-	int aux;
 
 	// Inicio la memoria dinamica
 
 	lista = (char **) malloc (N*sizeof(char*));
-	for(i=0; i>N ; i++){
-		lista[i] = (char *) malloc (1024*sizeof(char));
+	for(i=0; i<N ; i++){
+		lista[i] = malloc (1024*sizeof(char));
+		
 	}
 
 	// Comprobar que no da error 
@@ -104,7 +102,7 @@ int longlines (int N){
 
 	// Recorro la entrada estandar, guardo en la lista 	
 
-	while(fgets(buff,1024,stdin) != NULL){ // Mientras no se EOF 
+	while(fgets(buff,1024,stdin) != NULL){ // Mientras no sea EOF meteme en buff lo que vaya llegando de stdin
 		printf("hola ");
 		for(aux=0; aux<N; aux++){
 			printf("Lineas \n");
@@ -126,8 +124,10 @@ int longlines (int N){
 	// Imprimir 
 
 	for(j=0; j<N ; j++){
-		printf("Hola\n");
-		printf("%s" , lista[j]);
+		if(strcmp(lista[j],"")){
+			printf("Hola\n");
+			printf("%i: %s", i+1 , lista[j]);
+		}	
 	}
 
 	// Liberar memoria, de la lista y de cada elemento
