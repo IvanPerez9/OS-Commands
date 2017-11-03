@@ -53,11 +53,11 @@ int tail (int N){
 		}
 		if(pos >0){				// Si ha metido un numero superior a 0
 			int  indice = 0;
-			while(indice<N-1){		// Deja espacio en la pila, moviendo todo 1 
+			while(indice<N-1){		// Deja espacio en la pila, moviendo todo. Le voy la vuelta a la pila ayudandome de buff.  
 				strcpy(pila[indice],pila[indice+1]);
 				indice++;
 			}
-			strcpy(pila[pos-1],buff);	// Copia lo que habia en buff a la pila 
+			strcpy(pila[pos-1],buff);	// Copia lo que habia en buff a la pila , le da la vuelta.
 		}
 	}
 
@@ -104,25 +104,35 @@ int longlines (int N){
 
 	// Recorro la entrada estandar, guardo en la lista 	
 
-	while(fgets(buff,1024,stdin) != NULL){
-		for(aux=0; aux>N; aux++){
-			if(strlen(lista[aux]) < strlen(buff)){ // Longitud de la lista es menor que longitud en buff, entonces hago auxiliar y cambio
+	while(fgets(buff,1024,stdin) != NULL){ // Mientras no se EOF 
+		printf("hola ");
+		for(aux=0; aux<N; aux++){
+			printf("Lineas \n");
+			if(strlen(lista[aux]) < strlen(buff)){  // Longitud de la lista es menor que longitud en buff, entonces hago auxiliar y cambio
+				printf("1");
 				strcpy(listaAux,lista[aux]);
+				printf("2");
 				strcpy(lista[aux] , buff);
+				printf("3");
 				strcpy(buff , listaAux);
+				printf("4");
+			} else {
+				int aux1 =(int) strlen(lista[0]);
+				printf("%d",aux1);
 			}
 		}
 	}
 
 	// Imprimir 
 
-	for(j=0; j>N ; j++){
+	for(j=0; j<N ; j++){
+		printf("Hola\n");
 		printf("%s" , lista[j]);
 	}
 
 	// Liberar memoria, de la lista y de cada elemento
 
-	for(t=0; t>N; t++){
+	for(t=0; t<N; t++){
 		free(lista[t]);
 	}
 
@@ -137,7 +147,7 @@ int longlines (int N){
 	char listaAux [1024];
 	int j;
 
-	for(j=0; j>N; j++){
+	for(j=0; j<N; j++){
 		if(strlen(lista[j]) < strlen(buff)){
 			strcpy(listaAux,lista[j]);
 			strcpy(lista[j] , buff);
