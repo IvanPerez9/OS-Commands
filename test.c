@@ -46,7 +46,8 @@ int main (int argc , char *argv[]){
 			fprintf(stderr, "El numero de lineas no puede ser menor de 0\n");
 			return 1;
 		} else if(n==0) {
-			return printf("\n");								// DUDA, NECESITO EL '-' ANTES ??? PONER OTRO IF
+			return printf("\n");								
+
 		} else {
 			return (metodoDecidir(argv[1] , n));
 		}

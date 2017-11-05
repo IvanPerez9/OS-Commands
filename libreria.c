@@ -40,7 +40,7 @@ int tail (int N){
 
 	if(pila == NULL){
 		fprintf(stderr, "El malloc ha fallado");
-		return EXIT_FAILURE;
+		return 1;
 	}
 
 	// Recorrer el archivo hasta el final.
@@ -98,7 +98,7 @@ int longlines (int N){
 
 	if(lista == NULL){
 		fprintf(stderr,"El malloc ha fallado");
-		return EXIT_FAILURE;
+		return 1;
 	}
 
 	// Recorro la entrada estandar, guardo en la lista 	
