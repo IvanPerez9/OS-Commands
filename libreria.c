@@ -46,7 +46,7 @@ int tail (int N){
 
 	while(fgets(buff , 1024 , stdin) != NULL){     	     		// Mientras que no sea EOF, recorro	
 		if(strlen(buff)>strlen(pila[0])){
-			while((pos<N) && (strlen(buff)>strlen(pila[pos]))){  // Emepezar en la posicion 0. Numero de veces que hay que imprimir 
+			while((pos<N) && (strlen(buff)>strlen(pila[pos]))){  // Empezar en la posicion 0. Numero de veces que hay que imprimir 
 				pos++;
 			}
 		}
