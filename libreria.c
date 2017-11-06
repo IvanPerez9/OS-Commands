@@ -54,7 +54,7 @@ int tail (int N){
 		if(pos >0){				// Si ha metido un numero superior a 0
 			int  indice = 0;
 			while(indice<N-1){		// Deja espacio en la pila, moviendo todo. Le voy la vuelta a la pila ayudandome de buff.  
-				strcpy(pila[indice],pila[indice+1]);
+				strcpy(pila[indice],pila[indice+1]); // Hace que imprima tantos como N indicados.
 				indice++;
 			}
 			strcpy(pila[pos-1],buff);	// Copia lo que habia en buff a la pila , le da la vuelta.
