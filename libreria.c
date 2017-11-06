@@ -3,15 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-char ** SacarLongitud ( char ** lista , char * buff , int N); // Cabecera necesaria. Declaracion implicita 
 
-int head(int N){
+int head(int N){ 		// Funcion que saca las N primeras lineas
 
 	char buff[1024];
 	int contador = 0;
 
 	printf("\n");
-	while((contador<N) && (fgets(buff,1024,stdin)!= NULL)){
+	while((contador<N) && (fgets(buff,1024,stdin)!= NULL)){ 	// Recorre la entrada estandar guardandolo en Buff
 		printf("%s" , buff);
 		contador++;
 	}
@@ -22,8 +21,8 @@ int head(int N){
 
 int tail (int N){
 
-	char buff[1024]; // Almacen temporal
-	char ** pila ; // Pila resultante, de mayor a menor ordenada 
+	char buff[1024]; 	// Almacen temporal
+	char ** pila ; 		// Pila resultante, de mayor a menor ordenada 
 	int i;
 	int pos=0;
 	int imprimir;
@@ -31,7 +30,7 @@ int tail (int N){
 
 	// Reservar memoria dinámica. Usar malloc
 
-	pila = (char **) malloc (N*sizeof(char*)); // El array que crea es de 10 en el peor caso, por lo que miro lineas mas grandes al mismo tiempo 
+	pila = (char **) malloc (N*sizeof(char*)); 	// El array que crea es de 10 en el peor caso, por lo que miro lineas mas grandes al mismo tiempo 
 	for(i=0; i<N ; i++){
 		pila[i] = (char *) malloc (1024*sizeof(char));  // Reservo N espacios con tamaño 1024 en cada  ;
 	}
@@ -45,19 +44,19 @@ int tail (int N){
 
 	// Recorrer el archivo hasta el final.
 
-	while(fgets(buff , 1024 , stdin) != NULL){     	     // Mientras que no sea EOF, recorro	
+	while(fgets(buff , 1024 , stdin) != NULL){     	     		// Mientras que no sea EOF, recorro	
 		if(strlen(buff)>strlen(pila[0])){
 			while((pos<N) && (strlen(buff)>strlen(pila[pos]))){  // Emepezar en la posicion 0. Numero de veces que hay que imprimir 
 				pos++;
 			}
 		}
-		if(pos >0){				// Si ha metido un numero superior a 0
+		if(pos >0){						// Si ha metido un numero superior a 0
 			int  indice = 0;
-			while(indice<N-1){		// Deja espacio en la pila, moviendo todo. Le voy la vuelta a la pila ayudandome de buff.  
-				strcpy(pila[indice],pila[indice+1]); // Hace que imprima tantos como N indicados.
+			while(indice<N-1){				// Deja espacio en la pila, moviendo todo. Le voy la vuelta a la pila ayudandome de buff.  
+				strcpy(pila[indice],pila[indice+1]); 	// Hace que imprima tantos como N indicados.
 				indice++;
 			}
-			strcpy(pila[pos-1],buff);	// Copia lo que habia en buff a la pila , le da la vuelta.
+			strcpy(pila[pos-1],buff);			// Copia lo que habia en buff a la pila , le da la vuelta.
 		}
 	}
 
@@ -103,7 +102,7 @@ int longlines (int N){
 
 	// Recorro la entrada estandar, guardo en la lista 	
 
-	while(fgets(buff,1024,stdin) != NULL){ // Mientras no sea EOF meteme en buff lo que vaya llegando de stdin
+	while(fgets(buff,1024,stdin) != NULL){ 			// Mientras no sea EOF meteme en buff lo que vaya llegando de stdin
 		for(aux=0; aux<N; aux++){
 			if(strlen(lista[aux]) < strlen(buff)){  // Longitud de la lista es menor que longitud en buff, entonces hago auxiliar y cambio
 				strcpy(listaAux,lista[aux]);
