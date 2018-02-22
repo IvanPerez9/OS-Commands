@@ -8,49 +8,44 @@
 // Ejecutar libreria y main a la vez con el gcc libreria.c test.c -o test  
 
 int main (int argc , char *argv[]){
+	#define DEFAULTLINES 10
+	int nLineas; // Numero de linea que le paso 
 
-	int n;
-	
-	int metodoDecidir (char* opcion , int n){
+	if(argc < 2) {
 
-		if(strcmp(opcion,"head")==0){ // String to be compared. = 0 si son iguales. Man para mas info
-			head(n);
-			return 0;
-		} else if(strcmp(opcion, "tail")==0){
-			tail(n);
-			return 0;
-		} else if (strcmp(opcion, "longlines")==0){
-			longlines(n);
-			return 0;
-		} else {
-			fprintf(stderr, "No ha usado un nombre de un metodo\n");
-			return 1;
+       	fprintf(stderr, "No ha introducido nombre de una funcion\n");
+        return 1;
+
+    }else{
+	if(strcmp(argv[1],"head") == 0){ // Compara String 
+		if(argc == 2){ // Solo el nombre de la funcion
+			return head(DEFAULTLINES);
+		}else{
+			char *lineasEntrada = argv[2];
+			nLineas = (int) atoi(lineasEntrada); // Casting para pasar de tipo
+		        return head(nLineas);
 		}
-	}
-
-	printf("1.Funcion head(int N) ---> Muetra las N primeras lineas\n");
-	printf("2.Funcion tail(int N) ---> Muestra las N ultimas lineas\n");
-	printf("3.Funcion longlines(int N) ---> Muestra las N lineas mas largas\n");	
-
-
-	if (argc == 1){ // Solo nombre del programa. No hay variable.
-		fprintf(stderr, "No ha introducido nombre de una funcion\n");
+	}else if(strcmp(argv[1],"tail") == 0){  
+		if(argc == 2){ 
+			return tail(DEFAULTLINES);
+		}else{
+			char *lineasEntrada = argv[2];
+			nLineas = (int) atoi(lineasEntrada); 
+			return tail(nLineas);
+		}
+	}else if(strcmp(argv[1],"longlines") == 0){                
+		if(argc == 2){
+			return longlines(DEFAULTLINES);
+		}else{
+			char *lineasEntrada = argv[2];
+			nLineas = (int) atoi(lineasEntrada);
+			return longlines(nLineas);
+		}
+	}else{
+		fprintf(stderr, "No ha usado un nombre de un metodo\n");
 		return 1;
-	} else if (argc == 2){ // Solo con nombre funcion. Tiene 10 lineas para leer.
-		n = 10;
-		return (metodoDecidir(argv[1] , n)); // Al ser argv *char como opcion del metodo no hay problema.
-	} else {
-		char *lineasEntrada = argv[2];
-		n = (int) atoi (lineasEntrada); // Casting , pasar de *char a int
-		if(n<0){
-			fprintf(stderr, "El numero de lineas no puede ser menor de 0\n");
-			return 1;
-		} else if(n==0) {
-			return printf("\n");								
-
-		} else {
-			return (metodoDecidir(argv[1] , n));
-		}
 	}
+}
 
 }
+
