@@ -22,7 +22,7 @@ File that implements a function which prints the last n lines of its input. By d
 
 #### How does it work?
 ```shell
-$ ./test tail <N> <file1> <file2>
+$ ./test tail <N> <file1> 
 ```
 
 ### 2. Head:
@@ -30,7 +30,7 @@ File that implements a function which copy the first "n" bytes of a file into a 
 
 #### How does it work?
 ```shell
-$ ./test head <N> <file1> <file2>
+$ ./test head <N> <file1> 
 ```
 
 ### 3. Longlines:
@@ -39,7 +39,7 @@ File that implements a function which prints the longest lines of its input. By 
 #### How does it work?
 
 ```shell
-$ ./test longlines <N> <file1> <file2>
+$ ./test longlines <N> <file1> 
 ```
 ## Requirements:
 These commands are designed to work in a UNIX (GCC Compiler needed). <b>Max OSX or Any Linux distribution</b>
