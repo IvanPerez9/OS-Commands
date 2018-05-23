@@ -11,7 +11,7 @@ We use Wall and Wextra as options to request or suppress warnings
 <b> Wextra: </b>This enables some extra warning flags that are not enabled by -Wall. (This option used to be called -W. The older name is still supported, but the newer name is more descriptive.)
 ```shell
 $ make
-gcc -Wall -Wextra -o test test.c 
+gcc -Wall -Wextra libreria.c test.c -o test
 ```
 
 ## What is in the repository?
