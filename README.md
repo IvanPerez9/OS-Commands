@@ -16,27 +16,28 @@ gcc -Wall -Wextra libreria.c test.c -o test
 
 ## What is in the repository?
 
+### Inside Test.c 
 
-### 1. Tail:
+#### 1. Tail:
 File that implements a function which prints the last n lines of its input. By default, n is 10. The tail command copies the named file to the standard output beginning at a designated place. <b> If no file is named, the standard input is used.</b>
 
-#### How does it work?
+##### How does it work?
 ```shell
 $ ./test tail <N> <file1> 
 ```
 
-### 2. Head:
+#### 2. Head:
 File that implements a function which copy the first "n" bytes of a file into a new one. The number of bytes can be specified. The first specified file is the source and the second one is the destination one. <b>In case that the second file does not exist, it will be created.</b>
 
-#### How does it work?
+##### How does it work?
 ```shell
 $ ./test head <N> <file1> 
 ```
 
-### 3. Longlines:
+#### 3. Longlines:
 File that implements a function which prints the longest lines of its input. By default, n is 10.
 
-#### How does it work?
+##### How does it work?
 
 ```shell
 $ ./test longlines <N> <file1> 
