@@ -13,7 +13,13 @@ We use Wall and Wextra as options to request or suppress warnings
 $ make
 gcc -Wall -Wextra libreria.c test.c -o test
 ```
-<i>There are other commands that are not in test.c file and they are not for the university project </i>
+There are other commands that are not in test.c file and they are not for the university project
+
+```shell
+$ make
+gcc -Wall -Wextra myDiff.c -o myDiff
+```
+<i> You can change "myDiff" for other command name </i>
 
 ## What is in the repository?
 
