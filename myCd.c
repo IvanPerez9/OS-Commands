@@ -9,6 +9,11 @@
 *
 * CD , use getenv, getcwd and chdir 
 *
+*
+* getenv: Search for the environment string pointed to by name and return associated value
+* getcwd: Get the parameter of the current working directory
+* chdir: Changed working directory 
+*
 * 25/05/18
 */
 
