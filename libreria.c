@@ -10,7 +10,6 @@ int head(int N){
 	char buff[1024];
 	int contador = 0;
 
-	printf("\n");
 	while((contador<N) && (fgets(buff,1024,stdin)!= NULL)){
 		printf("%s" , buff);
 		contador++;
@@ -62,7 +61,6 @@ int tail (int N){
 		}
 	}
 
-	printf("\n");
 
 	//Resultado de la cadena.
 	
@@ -118,7 +116,7 @@ int longlines (int N){
 
 	for(j=0; j<N ; j++){
 		if(strcmp(lista[j],"")){
-			printf("\n%s", lista[j]);
+			printf("%s", lista[j]);
 		}	
 	}
 

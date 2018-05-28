@@ -39,11 +39,9 @@ int main (int argc , char *argv[]){
        		else if(strcmp(argv[1],"longlines") == 0){                
 			if(argc == 2){
 				return longlines(DEFAULTLINES);
-            		}else{
-				char *lineasEntrada = argv[2];
-				nLineas = (int) atoi(lineasEntrada);
-               			return longlines(nLineas);
-            		}
+            }else{
+				return longlines(atoi(argv[2]));
+            }
 		}else{
 			fprintf(stderr, "No ha usado un nombre de un metodo\n");
 			return 1;
