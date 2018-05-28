@@ -13,18 +13,18 @@ We use Wall and Wextra as options to request or suppress warnings
 $ make
 gcc -Wall -Wextra libreria.c test.c -o test
 ```
-<i>There are other commands that are not in test.c file </i>
+<i>There are other commands that are not in test.c file and they are not for the university project </i>
 
 ## What is in the repository?
 
-### 1.Inside Test.c 
+### 1.Inside Test.c <i> ( University Project ) </i>
 
 #### 1.1 Tail:
 File that implements a function which prints the last n lines of its input. By default, n is 10. The tail command copies the named file to the standard output beginning at a designated place. <b> If no file is named, the standard input is used.</b>
 
 ##### How does it work?
 ```shell
-$ ./test tail <N> <file1> 
+$ ./test tail <N> <file> 
 ```
 
 #### 1.2 Head:
@@ -32,7 +32,7 @@ File that implements a function which copy the first "n" bytes of a file into a 
 
 ##### How does it work?
 ```shell
-$ ./test head <N> <file1> 
+$ ./test head <N> <file> 
 ```
 
 #### 1.3 Longlines:
@@ -41,11 +41,25 @@ File that implements a function which prints the longest lines of its input. By 
 ##### How does it work?
 
 ```shell
-$ ./test longlines <N> <file1> 
+$ ./test longlines <N> <file> 
 ```
 ### 2.myCd 
+Command to change the directory/folder of the terminal's shell.
+You can press the tab button in order to auto complete the directory name
+
+##### How does it work?
+
+```shell
+$ ./myCd [directory]
+```
 
 ### 3.myDiff
+File that implements a function which compares 2 existing files and determine if they are equal or not.
+
+#### How does it work?
+```shell
+$ ./myDiff <file1> <file2>
+```
 
 ## Requirements:
 These commands are designed to work in a UNIX (GCC Compiler needed). <b>Max OSX or Any Linux distribution</b>
