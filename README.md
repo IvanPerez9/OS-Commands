@@ -78,7 +78,7 @@ Print a sequence of numbers.
 
 #### How does it work?
 ```shell
-$ ./mySeq FIRST INCREMENT LAST
+$ ./mySeq [First] [Increment] [Last]
 ```
 
 ## Requirements:
