@@ -67,5 +67,19 @@ File that implements a function which compares 2 existing files and determine if
 $ ./myDiff <file1> <file2>
 ```
 
+### 4.mySeq
+Print a sequence of numbers.
+
+<b>mySeq</b> [OPTION]... LAST
+
+<b>mySeq</b> [OPTION]... FIRST LAST
+
+<b>mySeq</b> [OPTION]... FIRST INCREMENT LAST
+
+#### How does it work?
+```shell
+$ ./mySeq FIRST INCREMENT LAST
+```
+
 ## Requirements:
 These commands are designed to work in a UNIX (GCC Compiler needed). <b>Max OSX or Any Linux distribution</b>
