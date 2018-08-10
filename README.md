@@ -1,6 +1,7 @@
 # OS-Commands 
 
 ![Bash Shell](https://badges.frapsoft.com/bash/v1/bash.png?v=103)
+[![Twitter Follow](https://img.shields.io/twitter/follow/Ivan_Prz12.svg?style=social)](https://twitter.com/Ivan_Prz12)
 
 This repository is a small collection of several Operating System commands, some of them already implemented in the UNIX systems, but others expand the OS ones to provide better functionality. Operating systems project 1. 
 
@@ -86,4 +87,4 @@ $ ./mySeq [First] [Increment] [Last]
 ## Requirements:
 These commands are designed to work in a UNIX (GCC Compiler needed). <b>Max OSX or Any Linux distribution</b>
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/Ivan_Prz12.svg?style=social)](https://twitter.com/Ivan_Prz12)
+
