@@ -1,6 +1,6 @@
 # OS-Commands 
 
-[![Bash Shell](https://badges.frapsoft.com/bash/v1/bash.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
+![Bash Shell](https://badges.frapsoft.com/bash/v1/bash.png?v=103)
 
 This repository is a small collection of several Operating System commands, some of them already implemented in the UNIX systems, but others expand the OS ones to provide better functionality. Operating systems project 1. 
 
